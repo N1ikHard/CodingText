@@ -17,17 +17,29 @@ namespace CodingText
             InitializeComponent();
         }
         int SaveSize;
-
+        byte[] array;
         private void BinCodeButton_Click(object sender, EventArgs e)
         {
             richTextBox2.Text = "";
-           byte []array = Coding.BinEncrypt(richTextBox1.Text,out SaveSize);
+           array = Coding.BinEncrypt(richTextBox1.Text,out SaveSize);
             string txt = "";
             foreach(byte b in array)
             {
                 txt += b;
             }
+            SaveSize = array.Length;
             richTextBox2.Text += txt;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string txt = Coding.Translate(array, SaveSize);
+            richTextBox2.Text = txt;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

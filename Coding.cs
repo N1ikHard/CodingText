@@ -28,7 +28,6 @@ namespace CodingText
                 for (int pow = 3; k < c; k++)
                 {
                     oldarray[i] += (byte)(array[k] * Math.Pow(2, pow--));
-
                 }
 
 
